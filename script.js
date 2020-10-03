@@ -6,7 +6,9 @@ window.addEventListener('load', function() {
 
     fetch(dataURL)
     .then(response => response.json())
-    .then(data => {        
+    .then(data => { 
+        
+        //load the json data
         junk = data;
     })
     .catch(error => {
@@ -15,6 +17,8 @@ window.addEventListener('load', function() {
 
 });
 
+
+//initialize global variables
 let junk;
 let apogeeRang = [];
 let periodRange = [];
@@ -28,7 +32,7 @@ function setup() {
 
     let apogees = [];
     let periods = [];
-
+    // get range of some properties before we create objects
     for (let i=0; i < junk.length; i++) {
 
         append(apogees,junk[i].APOGEE);
@@ -37,16 +41,20 @@ function setup() {
 
     }
 
+    //  get min max for certain properties
     apogeeRange = getMinMax(apogees);
     periodRange = getMinMax(periods);
 
     console.log()
-
+    // 2nd loop create / add objects to array
     for (let i=0; i < junk.length; i++) {
 
+        // the distance from orbited body (place in range between min max of apogee)
         let x = map(junk[i].APOGEE, apogeeRange.min, apogeeRange.max, windowHeight + 100, windowHeight * 2);
+        // set the speed of the orbit (place in range between min max of period [need to invert this])
         let speed = map(junk[i].PERIOD, periodRange.min, periodRange.max, 2000, 5000);
 
+        // set radius according to size property of object
         let r;
 
         if(junk[i].RCS_SIZE == 'LARGE') {
@@ -59,8 +67,8 @@ function setup() {
             r = 10;
         }
         
+        // set color based on type property of object
         let color;
-
         if(junk[i].OBJECT_TYPE == 'DEBRIS') {
             color = "magenta";
         }
@@ -74,9 +82,10 @@ function setup() {
             color = "white";
         }
 
+        // create new object for eaech junk
         let j = new Orbiter(r, x, speed, color);
-
         spaceObjects.push(j);
+
     }
 
 }
@@ -95,6 +104,7 @@ function draw() {
     }
 }
 
+// create function for getting min max because we might use it more than a few times
 function getMinMax(numbers) {
     return {"min":min(numbers), "max": max(numbers)};
 }
