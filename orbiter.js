@@ -3,7 +3,7 @@
 
 class Orbiter {
     constructor(sizeRadius, orbitRadius, orbitSpeed, junkType, orbitAngle=0) {
-        
+
         this.sizeRadius = sizeRadius;
         this.orbitRadius = orbitRadius;
         this.orbitSpeed = orbitSpeed;
@@ -11,6 +11,7 @@ class Orbiter {
         this.orbitAngle = orbitAngle; // degrees relative to x axis
 
         this.flipped = false;
+        this.multiplier = 1;
 
         this.color = this.getColor();
 
@@ -24,9 +25,21 @@ class Orbiter {
     }
 
     orbit(primary) {
-        this.x = primary.x + this.orbitRadius * cos(radians(this.orbitAngle));
-        this.y = primary.y + this.orbitRadius * sin(radians(this.orbitAngle));
-        this.orbitAngle = (this.orbitAngle + this.orbitAngleDelta) % 360;
+
+        if(this.flipped == false) {
+
+            this.x = primary.x + this.orbitRadius * cos(radians(this.orbitAngle));
+            this.y = primary.y + this.orbitRadius * sin(radians(this.orbitAngle));
+            this.orbitAngle = (this.orbitAngle + this.orbitAngleDelta) % 360;
+
+        }
+        else {
+            console.log("stuck notes max out speak for some reason??");
+            // let stuckSynth = new p5.PolySynth();
+            // let stuckNotes = ['D', 'G', 'C'];
+            // stuckSynth.play(random(stuckNotes)+4, .1, 0, 10);
+        }
+
     }
 
     display() {
@@ -48,15 +61,16 @@ class Orbiter {
     }
 
     inView() {
+        userStartAudio();
 
         //console.log(this.x,this.previousX )
-        let dur = 2;
+        let dur = 2.1;
         let time = 0;
         let vel = 0.1;
         let note;
         let octaveIn = 4;
         let octaveOut = 3;
-        let notes = ['D', 'E', 'F', 'G', 'A'];
+        let notes = ['D', 'E', 'B', 'G#'];
 
         if(this.sizeRadius == 10) {
             octaveIn = 5;
@@ -96,9 +110,11 @@ class Orbiter {
 
             if(this.flipped) {
                 this.color = "orange";
+                this.multiplier = -1;
             } 
             else {
                 this.color = this.getColor();
+                this.multiplier = 1;
             }
 
         }
