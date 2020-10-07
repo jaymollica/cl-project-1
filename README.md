@@ -14,6 +14,36 @@ h/t to Craig for setting me straight with the preprocessing / order of operation
 
 The data was taken from the [Geosynchronous Report](https://www.space-track.org/basicspacedata/query/class/satcat/format/html/orderby/NORAD_CAT_ID/PERIOD/1430--1450/CURRENT/Y/DECAY/null-val) on [space-track.org](https://www.space-track.org/) and preprocessed to only include objects classified as "DEBRIS". (A login is required to access the report.)
 
+Here is an example of the data provided per piece of junk:
+```
+{
+	"INTLDES": "1963-031A",
+	"NORAD_CAT_ID": "634",
+	"OBJECT_TYPE": "PAYLOAD",
+	"SATNAME": "SYNCOM 2 (A 26)",
+	"COUNTRY": "US",
+	"LAUNCH": "1963-07-26",
+	"SITE": "AFETR",
+	"DECAY": null,
+	"PERIOD": "1435.79",
+	"INCLINATION": "34.04",
+	"APOGEE": "35806",
+	"PERIGEE": "35755",
+	"COMMENT": null,
+	"COMMENTCODE": null,
+	"RCSVALUE": "0",
+	"RCS_SIZE": "LARGE",
+	"FILE": "7448",
+	"LAUNCH_YEAR": "1963",
+	"LAUNCH_NUM": "31",
+	"LAUNCH_PIECE": "A",
+	"CURRENT": "Y",
+	"OBJECT_NAME": "SYNCOM 2 (A 26)",
+	"OBJECT_ID": "1963-031A",
+	"OBJECT_NUMBER": "634"
+}
+```
+
 ## See it live
 
 https://cranky-knuth-3a0348.netlify.app/
