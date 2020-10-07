@@ -6,7 +6,7 @@ In this visualization I have tried to flip the perception of junk from eccessive
 
 Clicking on a piece of debris will freeze it in time, with a second click it will resume its orbit.
 
-The equation for calculating the path of an orbit was taken from [this Stack Exchange answer](// https://codereview.stackexchange.com/questions/211796/basic-orbiting-planets-in-p5-js).
+The equation for calculating the path of an orbit was taken from [this Stack Exchange answer](https://codereview.stackexchange.com/questions/211796/basic-orbiting-planets-in-p5-js).
 
 h/t to Craig for setting me straight with the preprocessing / order of operations.
 
