@@ -6,6 +6,12 @@ In this visualization I have tried to flip the perception of junk from eccessive
 
 Clicking on a piece of debris will freeze it in time, with a second click it will resume its orbit.
 
+The equation for calculating the path of an orbit was taken from [this Stack Exchange answer](// https://codereview.stackexchange.com/questions/211796/basic-orbiting-planets-in-p5-js).
+
+h/t to Craig for setting me straight with the preprocessing / order of operations.
+
 ## Data
 
-The data was taken from (space-track.org)[https://www.space-track.org/]
+The data was taken from the [Geosynchronous Report](https://www.space-track.org/basicspacedata/query/class/satcat/format/html/orderby/NORAD_CAT_ID/PERIOD/1430--1450/CURRENT/Y/DECAY/null-val) on [space-track.org](https://www.space-track.org/) and preprocessed to only include objects classified as "DEBRIS". (A login is required to access the report.)
+
+
